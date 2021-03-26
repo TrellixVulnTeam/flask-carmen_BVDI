@@ -6,15 +6,6 @@ from jinja2 import escape
 # 服务器可以将用户的访问请求数据发送给这个app
 app = Flask(__name__)
 
-@app.route('/', methods=('GET',))
-def base():
-    return render_template("base.html")
-
-
-@app.route('/index', methods=('GET',))
-def index():
-    return render_template("index/index.html")
-
 
 @app.route('/home', methods=('GET',))
 def home():
@@ -25,6 +16,12 @@ def home():
     ]
     # 左边的newsLists代表传入模板变量名称，lists则是要出入的对象
     return render_template("index/home.html", newsLists=lists)  
+
+
+@app.route('/', methods=('GET',))
+def index():
+    # print("hello")
+    return render_template("index/index.html")
 
 
 @app.route('/schedule', methods=('GET',))

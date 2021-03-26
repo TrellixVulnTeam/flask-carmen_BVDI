@@ -1,66 +1,63 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>水晶魔方</title>
-		<style type="text/css">
-			.stage>img{
-				position: absolute;
-				left: 0;
-				top: 0;
-				width: 200px;
-				height: 200px;
-			}
-			.stage{
-				position: absolute;
-				left: 200px;
-				top: 200px;
-				width: 200px;
-				height: 200px;
-				transform-style: preserve-3d;
-				transform: rotateX(10deg) rotateY(0deg);
-				animation: img_rotate 20s linear infinite;
-			}
+{% extends 'base.html' %}
+{% block title %}猫之泣{% endblock %}
+{% block styles %}
+<style type="text/css">
+	.stage>img{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 200px;
+		height: 200px;
+	}
+	.stage{
+		position: absolute;
+		left: 500px;
+		top: 200px;
+		width: 200px;
+		height: 200px;
+		transform-style: preserve-3d;
+		transform: rotateX(10deg) rotateY(0deg);
+		animation: img_rotate 20s linear infinite;
+	}
 
-			@-webkit-keyframes img_rotate{
-				from{
-					transform: rotateX(-30deg) rotateY(10deg);
-				}
-				to{
-					transform: rotateX(-30deg) rotateY(1090deg);
-				}
-			}
-			img{
-				opacity: 0.5;
-			}
-			img:nth-child(1){
-				transform: translateZ(100px);
-			}
-			img:nth-child(2){
-				transform: rotateY(180deg) translateZ(100px);
-			}
-			img:nth-child(3){
-				transform: rotateY(90deg) translateZ(100px);
-			}
-			img:nth-child(4){
-				transform: rotateY(-90deg) translateZ(100px);
-			}
-			img:nth-child(5){
-				transform: rotateX(90deg) translateZ(100px);
-			}
-			img:nth-child(6){
-				transform: rotateX(-90deg) translateZ(100px);
-			}
-		</style>
-	</head>
-	<body>
-		<div class="stage">
-			<img src="static/img/6-1.jpg" />
-			<img src="static/img/6-2.jpg" />
-			<img src="static/img/6-3.jpg" />
-			<img src="static/img/6-4.jpg" />
-			<img src="static/img/6-5.jpg" />
-			<img src="static/img/6-6.jpg" />
-		</div>
-	</body>
-</html>
+	@-webkit-keyframes img_rotate{
+		from{
+			transform: rotateX(-30deg) rotateY(10deg);
+		}
+		to{
+			transform: rotateX(-30deg) rotateY(1090deg);
+		}
+	}
+	img{
+		opacity: 0.5;
+	}
+	img:nth-child(1){
+		transform: translateZ(100px);
+	}
+	img:nth-child(2){
+		transform: rotateY(180deg) translateZ(100px);
+	}
+	img:nth-child(3){
+		transform: rotateY(90deg) translateZ(100px);
+	}
+	img:nth-child(4){
+		transform: rotateY(-90deg) translateZ(100px);
+	}
+	img:nth-child(5){
+		transform: rotateX(90deg) translateZ(100px);
+	}
+	img:nth-child(6){
+		transform: rotateX(-90deg) translateZ(100px);
+	}
+</style>
+{% endblock %}
+{% block content %}
+<div class="stage">
+	<img src="static/img/6-1.jpg" />
+	<img src="static/img/6-2.jpg" />
+	<img src="static/img/6-3.jpg" />
+	<img src="static/img/6-4.jpg" />
+	<img src="static/img/6-5.jpg" />
+	<img src="static/img/6-6.jpg" />
+</div>
+{% endblock %}
