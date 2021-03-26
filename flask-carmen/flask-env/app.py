@@ -1,5 +1,6 @@
 from flask import Flask, request, redirect, url_for, abort, jsonify, make_response
 from flask import render_template
+from jinja2 import escape
 
 # app是一个符合wsgi接口协议的python程序对象
 # 服务器可以将用户的访问请求数据发送给这个app
@@ -47,7 +48,7 @@ def hello():
     name = request.args.get('name')
     if name is None:
         name = request.cookies.get('name','Human')
-    return '<h1>Hello, %s!</h1>' % name
+    return '<h1>Hello, %s! <script>alert("nihao!!")</script></h1>' % escape(name)
 
 
 @app.route('/getyear', methods=('GET',))
