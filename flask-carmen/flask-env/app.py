@@ -7,13 +7,18 @@ from jinja2 import escape
 app = Flask(__name__)
 
 @app.route('/', methods=('GET',))
-def base():
-    return render_template("base.html")
-
-
-@app.route('/index', methods=('GET',))
 def index():
     return render_template("index/index.html")
+
+
+@app.route('/zen', methods=('GET',))
+def zen():
+    return render_template("index/zen.html")
+
+
+# @app.route('/index', methods=('GET',))
+# def index():
+#     return render_template("index/index.html")
 
 
 @app.route('/home', methods=('GET',))
