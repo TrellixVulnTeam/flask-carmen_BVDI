@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}register in{% endblock %}
+{% block content %}
+<h1>注册页</h1>
+<form action="/register" method="post">
+	<label for="username">Username</label>
+	<input type="text" name="username" id="username" value="" placeholder="请填写用户名" required/><br>
+
+	<label for="password">Password</label>
+	<input type="password" name="password" id="password" value="" placeholder="设置密码" required/><br>
+<!--	<input type="file" name="" id="" value="" /><br>-->
+
+<!--	<label for="radio-inline">男-->
+<!--		<input type="radio" name="sex" id="boy" value="boy" checked>-->
+<!--	</label>-->
+<!--	<label for="radio-inline">女-->
+<!--		<input type="radio" name="sex" id="girl" value="girl" checked><br>-->
+<!--	</label>-->
+<!--	<label for="sex">sex</label>-->
+<!--	<input type="text" name="sex" id="sex" value="" placeholder="请输入" required/><br>-->
+
+	<label for="age">age</label>
+	<input type="text" name="age" id="age" value="" placeholder="请输入" required/><br>
+
+	<input type="checkbox" name="" id="" value="" />
+	<label>Remember me</label><br>
+	<input type="submit" value="Log in"/>
+</form>
+{% endblock %}

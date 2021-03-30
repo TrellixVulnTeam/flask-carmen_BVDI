@@ -3,7 +3,9 @@
 	<head>
 		<meta charset="utf-8">
 		<title>{% block title %}神之领域{% endblock %}</title>
-		{% block styles %}{% endblock %}
+		{% block styles %}
+		<!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"> -->
+		{% endblock %}
 		<style type="text/css">
 			
 			/* 三大块模块整体布局及样式 */
@@ -91,10 +93,13 @@
 				</div>
 				<div class="container">
 
-					<a href="#">词云分析</a>
+					<a href="{{ url_for("form") }}">缘你相见</a>
 				</div>
 				<div class="container">
-					<a href="#">监控端</a>
+					<a href="{{ url_for("register") }}">注册页</a>
+				</div>
+				<div class="container">
+					<a href="{{ url_for("userList") }}">用户数据</a>
 				</div>
 				<div class="container">
 					<a href="http://8.135.10.27:5000">部署机器</a>
@@ -105,9 +110,7 @@
 				<div class="container">
 					<a href="http://1.15.50.20:8080/">jenkins</a>
 				</div>
-				<div class="container">
-					<a href="">关于作者</a>
-				</div>
+
 			</div>
 
 			<div class="right">

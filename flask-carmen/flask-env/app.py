@@ -1,10 +1,37 @@
 from flask import Flask, request, redirect, url_for, abort, jsonify, make_response
-from flask import render_template
+from flask import render_template, flash
 from jinja2 import escape
+from flask_sqlalchemy import SQLAlchemy
+import click
 
 # app是一个符合wsgi接口协议的python程序对象
 # 服务器可以将用户的访问请求数据发送给这个app
 app = Flask(__name__)
+app.secret_key = 'secret string'
+# 配置数据库
+# 变更后是否追踪，这里默认为True
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+# cms.db为数据库名字
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///cms.db"
+# 实例化数据库名称为db
+db = SQLAlchemy(app)
+
+
+# 创建数据库Model结构
+class User(db.Model):
+    # db.Column()为创建字段，第一个参数为字段数据类型
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String)
+    password = db.Column(db.String)
+    sex = db.Column(db.String)
+    age = db.Column(db.Integer)
+
+
+# @app.cli.command()
+# def initdb():
+#     db.create_all()
+#     click.echo("Initialized database.")
+
 
 @app.route('/', methods=('GET',))
 def index():
@@ -29,7 +56,7 @@ def home():
         {"title": "头条新闻", "intro": "XXXXXXXXX"},
     ]
     # 左边的newsLists代表传入模板变量名称，lists则是要出入的对象
-    return render_template("index/home.html", newsLists=lists)  
+    return render_template("index/home.html", newsLists=lists)
 
 
 @app.route('/schedule', methods=('GET',))
@@ -50,13 +77,67 @@ def crystal():
     return render_template("index/crystal.html")
 
 
+@app.route('/form')
+def form():
+    return render_template('index/form.html')
+
+
+@app.route('/register', methods=['get', 'post'])
+def register():
+    # form = LoginForm()
+    # if request.method == "POST" and form.validate():
+    if request.method == "POST":
+        username = request.form['username']
+        password = request.form['password']
+        # sex = request.form['sex']
+        age = request.form['age']
+        user = User(
+            username=username,
+            password=password,
+            # sex=sex,
+            age=age
+        )
+        db.session.add(user)
+        db.session.commit()
+        print(username, password)
+    return render_template('index/register.html')
+
+
+@app.route("/userlist")
+def userList():
+    users = User.query.all()
+    return render_template("user/user_list.html", users=users)
+
+
+@app.route("/user_delete/<int:user_id>")
+def deleteUser(user_id):
+    user = User.query.get(user_id)
+    db.session.delete(user)
+    db.session.commit()
+    return redirect(url_for("userList"))
+
+
+@app.route("/editedit/<int:user_id>", methods=['get', 'post'])
+def editUser(user_id):
+    user = User.query.get(user_id)
+    if request.method == "POST":
+        user.username = request.form['username']
+        user.password = request.form['password']
+        # sex = request.form['sex']
+        user.age = request.form['age']
+        # db.session.add(user)
+        db.session.commit()
+        return redirect(url_for("userList"))
+    return render_template("user/edit_user.html", user=user)
+
+
 @app.route('/hello', methods=('GET',))
 def hello():
     # print("hello")
     # name = request.args.get('name', 'Flask')
     name = request.args.get('name')
     if name is None:
-        name = request.cookies.get('name','Human')
+        name = request.cookies.get('name', 'Human')
     return '<h1>Hello, %s! <script>alert("nihao!!")</script></h1>' % escape(name)
 
 
@@ -79,11 +160,19 @@ def not_found():
 def foo():
     return jsonify(name='Li Xuefu', gender="muzi")
 
+
 @app.route('/set/<name>')
 def set_cookie(name):
     response = make_response(redirect(url_for('hello')))
     response.set_cookie('name', name)
     return response
+
+
+@app.route('/flash')
+def just_flash():
+    flash('I am flash')
+    return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)

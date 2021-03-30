@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}register in{% endblock %}
+{% block content %}
+<table border="" cellspacing="" cellpadding="">
+	<tr>
+		<th>序号</th>
+		<th>用户名</th>
+		<th>密码</th>
+		<th>性别</th>
+		<th>岁数</th>
+		<th>操作</th>
+	</tr>
+	{% for user in users %}
+	<tr>
+		<td>{{ user.id}}</td>
+		<td>{{ user.username}}</td>
+		<td>{{ user.password}}</td>
+		<td>{{ user.sex}}</td>
+		<td>{{ user.age}}</td>
+		<td>
+			<a href="{{ url_for("editUser", user_id=user.id) }}">修改</a>
+			<a href="{{ url_for("deleteUser", user_id=user.id) }}">删除</a>
+		</td>
+	</tr>
+	{% endfor %}
+</table>
+{% endblock %}

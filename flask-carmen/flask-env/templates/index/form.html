@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}缘你相见{% endblock %}
+{% block content %}
+<h1>缘你相见</h1>
+<table border="" cellspacing="" cellpadding="">
+	<tr><th>姓名</th><td><input type="" name="" id="" value="" /></td></tr>
+	<tr><th>出生年月日</th><td><select name="">
+		<option value="2002-01-01">2002-01-01</option>
+		<option value="2020-01-01">2020-01-01</option>
+	</select></td></tr>
+	<tr><th>性别</th><td>
+	<label>男</label>
+	<input type="radio" name="radio" id="" value="" checked>
+	<label>女</label>
+	<input type="radio" name="radio" id="" value="" checked>
+	</td></tr>
+	<tr><th>爱好</th>
+	<td>唱歌<input type="checkbox" name="" id="" value="" />
+	写诗<input type="checkbox" name="" id="" value="" />
+	</td></tr>
+	<tr><th>手机号</th><td><input type="" name="" id="" value="" /></td></tr>
+	<tr><th>登录密码</th><td><input type="password" name="" id="" value="" /></td></tr>
+	<tr><th>确认密码</th><td><input type="password" name="" id="" value="" /></td></tr>
+	<tr><td colspan="2"><input type="submit" name="" id="" value="***立即注册***" /></td></tr>
+</table>
+{% endblock %}
