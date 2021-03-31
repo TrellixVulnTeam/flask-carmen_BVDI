@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df2c1a0e-b107-4666-9a7f-d6c5f3625b7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/flask-env/libs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flask-env/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask-env/templates/base02.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask-env/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/cms.db" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/cms.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/templates/index/crystal.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/index/crystal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/templates/index/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/index/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/templates/index/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/templates/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/index/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/templates/index/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/index/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/templates/index/schedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/index/schedule.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/templates/index/sun.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/index/sun.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/templates/index/zen.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/index/zen.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/templates/user/edit_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/user/edit_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/templates/user/user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/user/user_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,13 +40,14 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/flask-env/templates/user" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\flask\flask-carmen\flask-env\static" />
-      <recent name="D:\flask\flask-carmen\flask-env\templates\index" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\flask\flask-carmen\flask-env\templates\user" />
       <recent name="D:\flask\flask-carmen\flask-env\templates" />
+      <recent name="D:\flask\flask-carmen\flask-env\templates\index" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\flask\flask-carmen\flask-env\templates" />
+      <recent name="D:\flask\flask-carmen\flask-env\static" />
       <recent name="D:\flask\flask-carmen\flask-env\templates\index" />
     </key>
   </component>
@@ -54,7 +63,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.utils">
+  <component name="RunManager" selected="Python.app">
     <configuration name="app (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="flask-carmen" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,9 +150,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.app" />
         <item itemvalue="Python.utils" />
         <item itemvalue="Python.app (1)" />
-        <item itemvalue="Python.app" />
         <item itemvalue="Python.hello" />
       </list>
     </recent_temporary>

@@ -22,6 +22,6 @@ def createBatchUsers():
         db.session.add(user)
     db.session.commit()
 
-
-if __name__ == '__main__':
-    createBatchUsers()
+#
+# if __name__ == '__main__':
+#     createBatchUsers()

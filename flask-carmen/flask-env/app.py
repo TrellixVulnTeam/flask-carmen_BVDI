@@ -45,17 +45,6 @@ def zen():
 #     return render_template("index/index.html")
 
 
-@app.route('/home', methods=('GET',))
-def home():
-    lists = [
-        {"title": "头条新闻", "intro": "XXXXXXXXX"},
-        {"title": "头条新闻", "intro": "XXXXXXXXX"},
-        {"title": "头条新闻", "intro": "XXXXXXXXX"},
-    ]
-    # 左边的newsLists代表传入模板变量名称，lists则是要出入的对象
-    return render_template("index/home.html", newsLists=lists)
-
-
 @app.route('/schedule', methods=('GET',))
 def schedule():
     # print("hello")
