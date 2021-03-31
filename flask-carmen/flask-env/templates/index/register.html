@@ -2,28 +2,58 @@
 {% block title %}register in{% endblock %}
 {% block content %}
 <h1>注册页</h1>
-<form action="/register" method="post">
-	<label for="username">Username</label>
-	<input type="text" name="username" id="username" value="" placeholder="请填写用户名" required/><br>
+<form class="form-horizontal" role="form" action="/register" method="post">
 
-	<label for="password">Password</label>
-	<input type="password" name="password" id="password" value="" placeholder="设置密码" required/><br>
-<!--	<input type="file" name="" id="" value="" /><br>-->
+  <div class="form-group">
+    <label for="username" class="col-sm-2 control-label">用户名</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名">
+    </div>
+  </div>
 
-<!--	<label for="radio-inline">男-->
-<!--		<input type="radio" name="sex" id="boy" value="boy" checked>-->
-<!--	</label>-->
-<!--	<label for="radio-inline">女-->
-<!--		<input type="radio" name="sex" id="girl" value="girl" checked><br>-->
-<!--	</label>-->
-<!--	<label for="sex">sex</label>-->
-<!--	<input type="text" name="sex" id="sex" value="" placeholder="请输入" required/><br>-->
+	<div class="form-group">
+		<label for="password" class="col-sm-2 control-label">密码</label>
+		<div class="col-sm-10">
+		  <input type="text" class="form-control" id="password" name="password" placeholder="请输入密码">
+		</div>
+	</div>
 
-	<label for="age">age</label>
-	<input type="text" name="age" id="age" value="" placeholder="请输入" required/><br>
+	<div class="form-group">
+		<label for="age" class="col-sm-2 control-label">年龄</label>
+		<div class="col-sm-10">
+		  <input type="text" class="form-control" id="age" name="age" placeholder="请输入年龄">
+		</div>
+	</div>
 
-	<input type="checkbox" name="" id="" value="" />
-	<label>Remember me</label><br>
-	<input type="submit" value="Log in"/>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">注册</button>
+    </div>
+  </div>
 </form>
+
+<!--<form action="/register" method="post">-->
+<!--	<label for="username">Username</label>-->
+<!--	<input type="text" name="username" id="username" value="" placeholder="请填写用户名" required/><br>-->
+
+<!--	<label for="password">Password</label>-->
+<!--	<input type="password" name="password" id="password" value="" placeholder="设置密码" required/><br>-->
+<!--&lt;!&ndash;	<input type="file" name="" id="" value="" /><br>&ndash;&gt;-->
+
+<!--&lt;!&ndash;	<label for="radio-inline">男&ndash;&gt;-->
+<!--&lt;!&ndash;		<input type="radio" name="sex" id="boy" value="boy" checked>&ndash;&gt;-->
+<!--&lt;!&ndash;	</label>&ndash;&gt;-->
+<!--&lt;!&ndash;	<label for="radio-inline">女&ndash;&gt;-->
+<!--&lt;!&ndash;		<input type="radio" name="sex" id="girl" value="girl" checked><br>&ndash;&gt;-->
+<!--&lt;!&ndash;	</label>&ndash;&gt;-->
+<!--&lt;!&ndash;	<label for="sex">sex</label>&ndash;&gt;-->
+<!--&lt;!&ndash;	<input type="text" name="sex" id="sex" value="" placeholder="请输入" required/><br>&ndash;&gt;-->
+
+<!--	<label for="age">age</label>-->
+<!--	<input type="text" name="age" id="age" value="" placeholder="请输入" required/><br>-->
+
+<!--	<input type="checkbox" name="" id="" value="" />-->
+<!--	<label>Remember me</label><br>-->
+<!--	<input type="submit" value="Log in"/>-->
+<!--</form>-->
 {% endblock %}

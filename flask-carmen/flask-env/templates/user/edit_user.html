@@ -2,12 +2,42 @@
 {% block title %}register in{% endblock %}
 {% block content %}
 <h1>编辑页</h1>
-<form action="{{ url_for("editUser", user_id=user.id) }}" method="post">
-	<label for="username">Username</label>
-	<input type="text" name="username" id="username" value="{{ user.username }}" placeholder="请填写用户名" required/><br>
+<form class="form-horizontal" role="form" action="{{ url_for("editUser", user_id=user.id) }}" method="post">
 
-	<label for="password">Password</label>
-	<input type="password" name="password" id="password" value="{{ user.password }}" placeholder="设置密码" required/><br>
+  <div class="form-group">
+    <label for="username" class="col-sm-2 control-label">用户名</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}" placeholder="请输入用户名">
+    </div>
+  </div>
+
+	<div class="form-group">
+		<label for="password" class="col-sm-2 control-label">密码</label>
+		<div class="col-sm-10">
+		  <input type="text" class="form-control" id="password" name="password" value="{{ user.password }}" placeholder="请输入密码">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="age" class="col-sm-2 control-label">年龄</label>
+		<div class="col-sm-10">
+		  <input type="text" class="form-control" id="age" name="age" value="{{ user.age }}" placeholder="请输入年龄">
+		</div>
+	</div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">保存</button>
+    </div>
+  </div>
+</form>
+
+<!--<form action="{{ url_for("editUser", user_id=user.id) }}" method="post">-->
+<!--	<label for="username">Username</label>-->
+<!--	<input type="text" name="username" id="username" value="{{ user.username }}" placeholder="请填写用户名" required/><br>-->
+
+<!--	<label for="password">Password</label>-->
+<!--	<input type="password" name="password" id="password" value="{{ user.password }}" placeholder="设置密码" required/><br>-->
 <!--	<input type="file" name="" id="" value="" /><br>-->
 
 <!--	<label for="radio-inline">男-->
@@ -19,11 +49,11 @@
 <!--	<label for="sex">sex</label>-->
 <!--	<input type="text" name="sex" id="sex" value="" placeholder="请输入" required/><br>-->
 
-	<label for="age">age</label>
-	<input type="text" name="age" id="age" value="{{ user.age }}" placeholder="请输入" required/><br>
+<!--	<label for="age">age</label>-->
+<!--	<input type="text" name="age" id="age" value="{{ user.age }}" placeholder="请输入" required/><br>-->
 
-	<input type="checkbox" name="" id="" value="" />
-	<label>Remember me</label><br>
-	<input type="submit" value="Log in"/>
-</form>
+<!--	<input type="checkbox" name="" id="" value="" />-->
+<!--	<label>Remember me</label><br>-->
+<!--	<input type="submit" value="Log in"/>-->
+<!--</form>-->
 {% endblock %}
