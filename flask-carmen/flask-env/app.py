@@ -1,13 +1,15 @@
 from flask import Flask, request, redirect, url_for, abort, jsonify, make_response
 from flask import render_template, flash
 from jinja2 import escape
-from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_mail import Mail
+from libs import db
 import click
 
 # app是一个符合wsgi接口协议的python程序对象
 # 服务器可以将用户的访问请求数据发送给这个app
+from models import User
+
 app = Flask(__name__)
 app.secret_key = 'secret string'
 # 配置数据库
@@ -16,38 +18,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 # cms.db为数据库名字
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///cms.db"
 # 实例化数据库名称为db
-db = SQLAlchemy(app)
+db.init_app(app)
+
 migrate = Migrate(app, db)
 mail = Mail(app)
 
-# 创建数据库Model结构
-class User(db.Model):
-    # db.Column()为创建字段，第一个参数为字段数据类型
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String)
-    password = db.Column(db.String)
-    sex = db.Column(db.String)
-    age = db.Column(db.Integer)
-
-
-class Author(db.Model):
-    # db.Column()为创建字段，第一个参数为字段数据类型
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(70), unique=True)
-    phone = db.Column(db.String(20))
-    nickname = db.Column(db.String(20))
-    like = db.Column(db.String(20))
-
-    articles = db.relationship('Article')
-
-
-class Article(db.Model):
-    # db.Column()为创建字段，第一个参数为字段数据类型
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(50), index=True)
-    body = db.Column(db.Text)
-
-    author_id = db.Column(db.Integer, db.ForeignKey('author.id'))
 
 # @app.cli.command()
 # def initdb():
