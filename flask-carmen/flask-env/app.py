@@ -2,6 +2,8 @@ from flask import Flask, request, redirect, url_for, abort, jsonify, make_respon
 from flask import render_template, flash
 from jinja2 import escape
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from flask_mail import Mail
 import click
 
 # app是一个符合wsgi接口协议的python程序对象
@@ -15,7 +17,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///cms.db"
 # 实例化数据库名称为db
 db = SQLAlchemy(app)
-
+migrate = Migrate(app, db)
+mail = Mail(app)
 
 # 创建数据库Model结构
 class User(db.Model):
@@ -26,6 +29,25 @@ class User(db.Model):
     sex = db.Column(db.String)
     age = db.Column(db.Integer)
 
+
+class Author(db.Model):
+    # db.Column()为创建字段，第一个参数为字段数据类型
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(70), unique=True)
+    phone = db.Column(db.String(20))
+    nickname = db.Column(db.String(20))
+    like = db.Column(db.String(20))
+
+    articles = db.relationship('Article')
+
+
+class Article(db.Model):
+    # db.Column()为创建字段，第一个参数为字段数据类型
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(50), index=True)
+    body = db.Column(db.Text)
+
+    author_id = db.Column(db.Integer, db.ForeignKey('author.id'))
 
 # @app.cli.command()
 # def initdb():
@@ -103,10 +125,41 @@ def register():
     return render_template('index/register.html')
 
 
-@app.route("/userlist")
+@app.route("/userlist", methods=['get', 'post'])
 def userList():
-    users = User.query.all()
+    if request.method == "POST":
+        input_username = request.form['username']
+        condition = {request.form['field']: input_username}
+        # filter_by
+        users = User.query.filter_by(**condition).all()
+        # filter
+        # if request.form['field'] == "id":
+        #     condition = User.id.like('%%%s%%' % input_username)
+        # elif request.form['field'] == "username":
+        #     condition = User.username.like('%%%s%%' % input_username)
+        # elif request.form['field'] == "age":
+        #     condition = User.age.like('%%%s%%' % input_username)
+
+        # if request.form['order'] == "1":
+        #     order = User.id.asc()
+        # else:
+        #     order = User.id.desc()
+
+        # users = User.query.filter(condition).order_by(order).all()
+        # users = User.query.filter(condition).all()
+
+    else:
+        # paginate分页设置
+        # page = request.args.get('page')
+        # users = User.query.paginate(int(page), 10)
+        users = User.query.all()
+
     return render_template("user/user_list.html", users=users)
+    # return render_template("user/user_list.html", users=users.items,
+    #                        pages=users.pages,  # 总页数
+    #                        total=users.total,  # 总条数
+    #                        pageList=users.iter_pages()  # 自动分页
+    #                        )
 
 
 @app.route("/user_delete/<int:user_id>")

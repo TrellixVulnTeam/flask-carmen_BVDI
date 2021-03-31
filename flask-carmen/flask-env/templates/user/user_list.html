@@ -1,6 +1,43 @@
 {% extends 'base.html' %}
 {% block title %}register in{% endblock %}
 {% block content %}
+<form action="" method="post">
+	<label for="">id</label>
+	<input type="text" name="id" id="" value="" />
+	<label for="">Username</label>
+	<input type="text" name="username" id="" value="" />
+	<label for="">age</label>
+	<input type="text" name="age" id="" value="" />
+
+	<div class="form-group">
+		<label for="field" class="col-xs-2 control-label">查询字段</label>
+		<div class="col-xs-10">
+			<select name="field" class="form-control">
+<!--				<option value="username">查询字段</option>-->
+				<option value="id">序号</option>
+				<option value="username">用户昵称</option>
+				<option value="age">岁数</option>
+			</select>
+		</div>
+	</div>
+
+<!--	<div class="form-group">-->
+<!--		<label for="排序" class="col-xs-2 control-label">排序</label>-->
+<!--		<div class="col-xs-2">-->
+<!--		   <select name="order" class="form-control">-->
+<!--				<option value="1" checked>按照id升序排序</option>-->
+<!--				<option value="2">按照id降序排序</option>-->
+<!--			</select>-->
+<!--		</div>-->
+<!--	</div>-->
+
+	<input type="submit" value="查询"/>
+</form>
+<table>
+	<tr>
+		<td>总页数：{{ pages }}/总记录：{{ total }}</td>
+	</tr>
+</table>
 <table border="" cellspacing="" cellpadding="">
 	<tr>
 		<th>序号</th>
@@ -23,5 +60,14 @@
 		</td>
 	</tr>
 	{% endfor %}
+	<ul>
+		{% for page in pageList %}
+			{% if page != None %}
+				<li><a href="?page={{ page }}">{{ page }}</a></li>
+			{% else %}
+				<li><a href="#">...</a></li>
+			{% endif %}
+		{% endfor %}
+	</ul>
 </table>
 {% endblock %}

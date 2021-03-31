@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df2c1a0e-b107-4666-9a7f-d6c5f3625b7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flask-env/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flask-env/templates/user/edit_user.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flask-env/templates/user/user_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/app copy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask-env/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/cms.db" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/cms.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/templates/user/user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/user/user_list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
