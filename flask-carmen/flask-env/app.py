@@ -4,6 +4,7 @@ from jinja2 import escape
 from flask_migrate import Migrate
 from flask_mail import Mail
 from libs import db
+from models import Message
 import click
 
 # app是一个符合wsgi接口协议的python程序对象
@@ -152,10 +153,38 @@ def editUser(user_id):
     return render_template("user/edit_user.html", user=user)
 
 
+@app.route("/sayhello", methods=['get', 'post'])
+def sayHello():
+
+    if request.method == "POST":
+        author = request.form['author']  # 承接前端author字段传参过来的数据
+        author_text = request.form['author-text']
+        print(author, author_text)
+        message = Message(
+            author=author,
+            author_text=author_text
+        )
+        db.session.add(message)  # 将数据提交到缓冲区
+        db.session.commit() # 提交到数据库
+        flash("提交成功了~~~你的话全世界都知道啦")
+    #     # sex = request.form['sex']
+    #     user.age = request.form['age']
+    #     # db.session.add(user)
+    #     db.session.commit()
+        return redirect(url_for("messageList"))  # 重定向到message展示页
+    return render_template("board-item/say-hello.html")  # 确定使用的前端模版
+
+
+@app.route("/messagelist", methods=['get', 'post'])
+def messageList():
+    # 加载所有的记录，这里使用逆序排列
+    messages = Message.query.order_by(Message.timestamp.desc()).all()
+
+    return render_template("board-item/say-hello.html", messages=messages)
+
+
 @app.route('/hello', methods=('GET',))
 def hello():
-    # print("hello")
-    # name = request.args.get('name', 'Flask')
     name = request.args.get('name')
     if name is None:
         name = request.cookies.get('name', 'Human')

@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from libs import db
 
 
@@ -31,4 +33,10 @@ class Article(db.Model):
     author_id = db.Column(db.Integer, db.ForeignKey('author.id'))
 
 
+class Message(db.Model):
+    # db.Column()为创建字段，第一个参数为字段数据类型
+    id = db.Column(db.Integer, primary_key=True)
+    author = db.Column(db.String(20))
+    author_text = db.Column(db.String(200))
 
+    timestamp = db.Column(db.DateTime, default=datetime.now, index=True)

@@ -1,0 +1,75 @@
+{% extends 'base02.html' %}
+{% block title %}留言板{% endblock %}
+{% block content %}
+<div class="nav">
+	<h1 class="text-center display-4">
+		<a href="#" class="text-success"><strong>Say Hello</strong></a>
+		<small class="text-muted sub-title">to the world</small>
+	</h1>
+</div>
+
+<div class="body">
+	{% for message in get_flashed_messages() %}{{ message }}{% endfor %}
+	<form action="{{ url_for("sayHello") }}" method="post">
+
+<!--		<form role="form">-->
+		  <div class="form-group">
+			<label><h3>Name</h3></label><br>
+				<input type="text" class="form-control" name="author" placeholder="文本输入" required>
+			</div>
+<!--		</form>-->
+
+		<!-- <label><h3>Message</h3></label>
+		<input type="text" name="" id="" value="" /><br> -->
+<!--		<form role="form">-->
+		  <div class="form-group">
+			<label for="name">Message</label><br>
+			<textarea class="form-control" name="author-text" rows="3" required></textarea>
+		  </div>
+<!--		</form>-->
+
+		<input type="submit" value="Submit"/>
+	</form>
+	<h2>{{ messages|length }} messages</h2>
+	<ul class="list-group">
+		<!-- <div class="well well-lg">您好，我在大的 Well 中！</div> -->
+		{% for message in messages %}
+		<li class="list-group-item">
+			<h3>
+				<a href="#" class="text-success"><strong>{{ message.author }}</strong></a>
+				<small class="text-muted sub-title">#{{ message.id }}</small>
+			</h3>
+			<h5 class="text-right">{{ message.timestamp.strftime('%Y/%m/%d %H:%M') }} </h5>
+			<h4>{{ message.author_text }}</h4>
+		</li>
+		{% endfor %}
+<!--		<li class="list-group-item">-->
+<!--			<h2>-->
+<!--				<a href="#" class="text-success"><strong>lixf6</strong></a>-->
+<!--				<small class="text-muted sub-title">#21</small>-->
+<!--			</h2>-->
+<!--			<h4 class="text-right">2 hours ago </h4>-->
+<!--			<h3>test for here, say hello~</h3>-->
+<!--		</li>-->
+<!--		<li class="list-group-item">-->
+<!--			<h2>-->
+<!--				<a href="#" class="text-success"><strong>lixf6</strong></a>-->
+<!--				<small class="text-muted sub-title">#21</small>-->
+<!--			</h2>-->
+<!--			<h4 class="text-right">2 hours ago </h4>-->
+<!--			<h3>test for here, say hello~</h3>-->
+<!--		</li>-->
+	</ul>
+	<!-- <ul>
+		<li>lixf6 #21  2 hours ago <h3>test for here, say hello~</h3></li>
+		<li>lixf6 #21  2 hours ago <h3>test for here, say hello~</h3></li>
+		<li>lixf6 #21  2 hours ago <h3>test for here, say hello~</h3></li>
+
+	</ul> -->
+</div>
+
+<div class="footer">
+	<h4 class="text-center display-4">© 2021 Xuefu Li / GitHub / SayHelloToWorld</h4>
+	<h4 class="text-center display-4"><a href="">↑</a></h4>
+</div>
+{% endblock %}

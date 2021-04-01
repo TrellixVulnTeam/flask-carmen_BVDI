@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>{% block title %}You See{% endblock %}</title>
+{% for message in get_flashed_messages() %}{% endfor %}
 {% block styles %}{% endblock %}
 <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -59,6 +60,7 @@
 				<li><a href="{{ url_for("form") }}">缘你相见</a></li>
 				<li><a href="{{ url_for("register") }}">注册页</a></li>
 				<li><a href="{{ url_for("userList") }}">用户数据</a></li>
+                <li><a href="{{ url_for("messageList") }}">留言板</a></li>
 				<li><a href="http://8.135.10.27:5000">部署机器</a></li>
 				<li><a href="https://blog.csdn.net/LiXueFu727224204">往昔文章</a></li>
 				<li><a href="http://1.15.50.20:8080/">jenkins</a></li>
