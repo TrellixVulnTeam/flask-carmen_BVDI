@@ -1,5 +1,9 @@
+# import app
+import click
+# from flask import app
+from app import app
 from libs import db
-from models import User
+from models import User, Message
 import random
 
 
@@ -21,7 +25,3 @@ def createBatchUsers():
         )
         db.session.add(user)
     db.session.commit()
-
-#
-# if __name__ == '__main__':
-#     createBatchUsers()

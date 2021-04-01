@@ -155,7 +155,6 @@ def editUser(user_id):
 
 @app.route("/sayhello", methods=['get', 'post'])
 def sayHello():
-
     if request.method == "POST":
         author = request.form['author']  # 承接前端author字段传参过来的数据
         author_text = request.form['author-text']
@@ -165,12 +164,12 @@ def sayHello():
             author_text=author_text
         )
         db.session.add(message)  # 将数据提交到缓冲区
-        db.session.commit() # 提交到数据库
+        db.session.commit()  # 提交到数据库
         flash("提交成功了~~~你的话全世界都知道啦")
-    #     # sex = request.form['sex']
-    #     user.age = request.form['age']
-    #     # db.session.add(user)
-    #     db.session.commit()
+        #     # sex = request.form['sex']
+        #     user.age = request.form['age']
+        #     # db.session.add(user)
+        #     db.session.commit()
         return redirect(url_for("messageList"))  # 重定向到message展示页
     return render_template("board-item/say-hello.html")  # 确定使用的前端模版
 
@@ -222,6 +221,24 @@ def set_cookie(name):
 def just_flash():
     flash('I am flash')
     return redirect(url_for('index'))
+
+
+@app.cli.command()
+@click.option('--count', default=10, help='create messages, default is 10')
+def forge(count):
+    """创造留言板用户数据"""
+    from faker import Faker
+    fake = Faker()  # 用来创造虚拟数据的faker实例
+    click.echo("Working...")
+    for i in range(count):
+        message = Message(
+            author=fake.name(),
+            author_text=fake.sentence(),
+            timestamp=fake.date_time_this_year()
+        )
+        db.session.add(message)
+    db.session.commit()
+    click.echo("Created %s fake messages" % count)
 
 
 if __name__ == '__main__':
