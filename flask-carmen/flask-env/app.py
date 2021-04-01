@@ -93,9 +93,13 @@ def register():
 def userList():
     if request.method == "POST":
         input_username = request.form['username']
+        # if not input_username:
         condition = {request.form['field']: input_username}
+        print(condition)
         # filter_by
         users = User.query.filter_by(**condition).all()
+        if not input_username:
+            users = User.query.all()
         # filter
         # if request.form['field'] == "id":
         #     condition = User.id.like('%%%s%%' % input_username)

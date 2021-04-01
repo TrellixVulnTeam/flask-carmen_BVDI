@@ -1,12 +1,12 @@
 {% extends 'base02.html' %}
 {% block title %}register in{% endblock %}
 {% block content %}
-<form class="form-horizontal" role="form">
+<form class="form-horizontal" role="form" action="{{ url_for("userList") }}" method="post">
 
   <div class="form-group">
-    <label for="firstname" class="col-sm-2 control-label">用户名</label>
+    <label for="username" class="col-sm-2 control-label">用户名</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="firstname" placeholder="请输入用户名">
+      <input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名">
     </div>
   </div>
 
