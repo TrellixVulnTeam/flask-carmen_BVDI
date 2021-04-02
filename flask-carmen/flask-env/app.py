@@ -6,13 +6,15 @@ from flask_mail import Mail
 from libs import db
 from models import Message
 import click
-from models import User
+from views.blogs.blog import blog_app
 from views.messages.messages import message_app
 from views.users.users import user_app
 
 app = Flask(__name__)
 app.register_blueprint(user_app, url_prefix="/user")
 app.register_blueprint(message_app, url_prefix="/message")
+app.register_blueprint(blog_app, url_prefix="/blog")
+
 
 # app是一个符合wsgi接口协议的python程序对象
 # 服务器可以将用户的访问请求数据发送给这个app
