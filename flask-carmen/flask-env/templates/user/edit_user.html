@@ -2,7 +2,7 @@
 {% block title %}register in{% endblock %}
 {% block content %}
 <h1>编辑页</h1>
-<form class="form-horizontal" role="form" action="{{ url_for("editUser", user_id=user.id) }}" method="post">
+<form class="form-horizontal" role="form" action="{{ url_for("user_app.editUser", user_id=user.id) }}" method="post">
 
   <div class="form-group">
     <label for="username" class="col-sm-2 control-label">用户名</label>

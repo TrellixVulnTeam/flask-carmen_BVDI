@@ -10,7 +10,7 @@
 
 <div class="body">
 	{% for message in get_flashed_messages() %}{{ message }}{% endfor %}
-	<form action="{{ url_for("sayHello") }}" method="post">
+	<form action="{{ url_for("message_app.sayHello") }}" method="post">
 
 <!--		<form role="form">-->
 		  <div class="form-group">

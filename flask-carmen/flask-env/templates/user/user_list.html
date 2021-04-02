@@ -1,7 +1,7 @@
 {% extends 'base02.html' %}
 {% block title %}register in{% endblock %}
 {% block content %}
-<form class="form-horizontal" role="form" action="{{ url_for("userList") }}" method="post">
+<form class="form-horizontal" role="form" action="{{ url_for("user_app.userList") }}" method="post">
 
   <div class="form-group">
     <label for="username" class="col-sm-2 control-label">用户名</label>
@@ -89,8 +89,8 @@
 		<td>{{ user.sex}}</td>
 		<td>{{ user.age}}</td>
 		<td>
-			<a href="{{ url_for("editUser", user_id=user.id) }}">修改</a>
-			<a href="{{ url_for("deleteUser", user_id=user.id) }}">删除</a>
+			<a href="{{ url_for("user_app.editUser", user_id=user.id) }}">修改</a>
+			<a href="{{ url_for("user_app.deleteUser", user_id=user.id) }}">删除</a>
 		</td>
 	</tr>
 	{% endfor %}
