@@ -11,21 +11,22 @@ admin_app = Blueprint("admin_app", __name__)
 def newPost():
     # form = LoginForm()
     # if request.method == "POST" and form.validate():
+    categorys = Category.query.all()
     if request.method == "POST":
         title = request.form['title']
-        category = request.form['category']
+        category_name = request.form['category_name']
         body = request.form['body']
         # age = request.form['age']
         post = Post(
             title=title,
-            category=category,
+            category=category_name,
             body=body,
             # age=age
         )
         db.session.add(post)
         db.session.commit()
-        print(title, category, body)
-    return render_template('admin/new_post.html')
+        print(title, category_name, body)
+    return render_template('admin/new_post.html', categorys=categorys)
 
 
 @admin_app.route('/newcategory', methods=['get', 'post'])
@@ -34,12 +35,12 @@ def newCategory():
     # if request.method == "POST" and form.validate():
     if request.method == "POST":
         # title = request.form['title']
-        category = request.form['category']
+        category_name = request.form['category_name']
         # body = request.form['body']
         # age = request.form['age']
         admin_category = Category(
             # title=title,
-            category=category,
+            category_name=category_name,
             # body=body,
             # age=age
         )
@@ -69,6 +70,18 @@ def newLink():
 def managePost():
     blog_posts = Post.query.all()
     return render_template('admin/manage_post.html', blog_posts=blog_posts)
+
+    # paginate分页设置
+    # page = request.args.get('page')
+    # users = User.query.paginate(int(page), 10)
+    # # users = User.query.all()
+    #
+    # # return render_template("user/user_list.html", users=users)
+    # return render_template("admin/manage_post.html", users=users.items,
+    #                        pages=users.pages,  # 总页数
+    #                        total=users.total,  # 总条数
+    #                        pageList=users.iter_pages()  # 自动分页
+    #                        )
 
 
 @admin_app.route('/managecategory', methods=['get', 'post'])

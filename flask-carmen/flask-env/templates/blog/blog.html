@@ -14,8 +14,10 @@
 	  {% for blog_post in blog_posts %}
 		  <p>{{ blog_post.title }}</p>
 		  <p>{{ blog_post.body }}</p>
-		  <p>{{ blog_post.category }}</p>
-		  <!-- <br> -->
+			<h5>
+			<a href="#" class="text-success"><strong>{{ blog_post.category }}</strong></a>
+			<small class="text-muted sub-title">#{{ blog_post.timestamp }}</small>
+			</h5>
 		  <hr >
 	  {% endfor %}
      <!-- <h2>标题</h2>
@@ -34,14 +36,15 @@
 	</div>
 
 	<div class="col-sm-4">
-	  <h2>关于我</h2>
-	  <h5>我的照片:</h5>
+	  <h2>之于我</h2>
+	  <h5>似水流年:</h5>
       <div class="fakeimg">
           <img src="{{ url_for('static', filename='img/sky_fighting.jpg') }}" width="400" height="200"/>
       </div>
-	  <p>关于我的介绍..</p>
+<!--	  <p>关于我的介绍..</p>-->
+
 	  <h3>链接</h3>
-	  <p>描述文本。</p>
+	  <p>幽灵之洞：</p>
 
 	  <ul class="nav nav-pills nav-stacked">
 <!--	    <li class="active"><a href="#">链接 1</a></li>-->
