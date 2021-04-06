@@ -51,9 +51,7 @@ def newCategory():
 
 @admin_app.route('/newlink', methods=['get', 'post'])
 def newLink():
-    # form = LoginForm()
-    # if request.method == "POST" and form.validate():
-    # links = Link.query.all()
+
     if request.method == "POST":
         link_name = request.form['link_name']
         link_url = request.form['link_url']
@@ -64,14 +62,62 @@ def newLink():
         db.session.add(admin_link)
         db.session.commit()
         print(admin_link)
-    # else:
-
-        # return redirect(url_for("admin_app.blogList"), links=links)
     return render_template('admin/new_link.html')
 
 
-@admin_app.route("/bloglist", methods=['get', 'post'])
-def blogList():
-    links = Link.query.all()
+@admin_app.route('/managepost', methods=['get', 'post'])
+def managePost():
+    blog_posts = Post.query.all()
+    return render_template('admin/manage_post.html', blog_posts=blog_posts)
 
-    return redirect("admin/blog.html", links=links)
+
+@admin_app.route('/managecategory', methods=['get', 'post'])
+def manageCategory():
+    return render_template('admin/manage_category.html')
+
+
+@admin_app.route('/managelink', methods=['get', 'post'])
+def manageLink():
+    links = Link.query.all()
+    return render_template('admin/manage_link.html', links=links)
+
+
+@admin_app.route("/editpost/<int:post_id>", methods=['get', 'post'])
+def editPost(post_id):
+    post = Post.query.get(post_id)
+    if request.method == "POST":
+        post.title = request.form['title']
+        post.category = request.form['category']
+        post.body = request.form['body']
+        # db.session.add(user)
+        db.session.commit()
+        return redirect(url_for("admin_app.managePost"))
+    return render_template("admin/edit_post.html", post=post)
+
+
+@admin_app.route("/post_delete/<int:post_id>")
+def deletePost(post_id):
+    blog_post = Post.query.get(post_id)
+    db.session.delete(blog_post)
+    db.session.commit()
+    return redirect(url_for("admin_app.managePost"))
+
+
+@admin_app.route("/editlink/<int:link_id>", methods=['get', 'post'])
+def editLink(link_id):
+    link = Link.query.get(link_id)
+    if request.method == "POST":
+        link.link_name = request.form['link_name']
+        link.link_url = request.form['link_url']
+        # db.session.add(user)
+        db.session.commit()
+        return redirect(url_for("admin_app.manageLink"))
+    return render_template("admin/edit_link.html", link=link)
+
+
+@admin_app.route("/link_delete/<int:link_id>")
+def deleteLink(link_id):
+    blog_link = Link.query.get(link_id)
+    db.session.delete(blog_link)
+    db.session.commit()
+    return redirect(url_for("admin_app.manageLink"))

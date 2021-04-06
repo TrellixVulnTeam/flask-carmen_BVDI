@@ -1,10 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'blog_base.html' %}
+{% block title %}New Post{% endblock %}
 
-</body>
-</html>
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+<h1>Manage Post</h1>
+<div class="row">
+    <div class="col-sm-12">
+        <table class="table table-striped">
+<!--          <caption>条纹表格布局</caption>-->
+            <tr>
+                <td>总页数：{{ pages }}/总记录：{{ total }}</td>
+            </tr>
+          <thead>
+            <tr>
+                <th>序号</th>
+                <th>标题</th>
+                <th>目录</th>
+                <th>创建时间</th>
+                <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for blog_post in blog_posts %}
+            <tr>
+                <td>{{ blog_post.id}}</td>
+                <td>{{ blog_post.title}}</td>
+                <td>{{ blog_post.category}}</td>
+                <td>{{ blog_post.timestamp }}</td>
+                <td>
+                    <a href="{{ url_for("admin_app.editPost", post_id=blog_post.id) }}"><button type="button">修改</button></a>
+                    <a href="{{ url_for("admin_app.deletePost", post_id=blog_post.id) }}"><button type="button">删除</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+<!--            <ul>-->
+<!--                {% for page in pageList %}-->
+<!--                    {% if page != None %}-->
+<!--                        <li><a href="?page={{ page }}">{{ page }}</a></li>-->
+<!--                    {% else %}-->
+<!--                        <li><a href="#">...</a></li>-->
+<!--                    {% endif %}-->
+<!--                {% endfor %}-->
+<!--            </ul>-->
+        </table>
+
+    </div>
+</div>
+{% endblock %}

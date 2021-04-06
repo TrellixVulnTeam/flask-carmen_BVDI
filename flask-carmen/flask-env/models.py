@@ -48,6 +48,7 @@ class Post(db.Model):
     title = db.Column(db.String(20), index=True)
     category = db.Column(db.String(20))
     body = db.Column(db.Text)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow, index=True)
 
 
 class Category(db.Model):

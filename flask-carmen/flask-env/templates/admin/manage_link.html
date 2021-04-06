@@ -1,10 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'blog_base.html' %}
+{% block title %}Manage Link{% endblock %}
 
-</body>
-</html>
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+<h1>Manage Link</h1>
+<div class="row">
+    <div class="col-sm-12">
+        <table class="table table-striped">
+<!--          <caption>条纹表格布局</caption>-->
+            <tr>
+                <td>总页数：{{ pages }}/总记录：{{ total }}</td>
+            </tr>
+          <thead>
+            <tr>
+                <th>序号</th>
+                <th>链接标题</th>
+                <th>链接名称</th>
+                <th>创建时间</th>
+                <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for link in links %}
+            <tr>
+                <td>{{ link.link_id}}</td>
+                <td>{{ link.link_name}}</td>
+                <td>{{ link.link_url}}</td>
+                <td>{{ link.timestamp }}</td>
+                <td>
+                    <a href="{{ url_for("admin_app.editLink", link_id=link.link_id) }}"><button type="button">修改</button></a>
+                    <a href="{{ url_for("admin_app.deleteLink", link_id=link.link_id) }}"><button type="button">删除</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+<!--            <ul>-->
+<!--                {% for page in pageList %}-->
+<!--                    {% if page != None %}-->
+<!--                        <li><a href="?page={{ page }}">{{ page }}</a></li>-->
+<!--                    {% else %}-->
+<!--                        <li><a href="#">...</a></li>-->
+<!--                    {% endif %}-->
+<!--                {% endfor %}-->
+<!--            </ul>-->
+        </table>
+
+    </div>
+</div>
+{% endblock %}
