@@ -40,3 +40,23 @@ class Message(db.Model):
     author_text = db.Column(db.String(200))
 
     timestamp = db.Column(db.DateTime, default=datetime.now, index=True)
+
+
+class Post(db.Model):
+    # db.Column()为创建字段，第一个参数为字段数据类型
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(20), index=True)
+    category = db.Column(db.String(20))
+    body = db.Column(db.Text)
+
+
+class Category(db.Model):
+    # db.Column()为创建字段，第一个参数为字段数据类型
+    category_id = db.Column(db.Integer, primary_key=True)
+    category = db.Column(db.String(20))
+
+
+class Link(db.Model):
+    link_id = db.Column(db.Integer, primary_key=True)
+    link_name = db.Column(db.String(30))
+    link_url = db.Column(db.String(255))

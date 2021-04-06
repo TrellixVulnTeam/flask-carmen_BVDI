@@ -1,0 +1,54 @@
+{% extends 'blog_base.html' %}
+{% block title %}New Post{% endblock %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+<h1>New Post</h1>
+<div class="row">
+		<div class="col-sm-8">
+		<form class="form-horizontal" role="form" action="{{ url_for("admin_app.newPost") }}" method="post">
+		  <div class="form-group">
+			<label for="title" class="col-sm-2 control-label">文章标题</label>
+			<div class="col-sm-10">
+			  <input type="text" class="form-control" id="title" placeholder="请输入名字" name="title">
+			</div>
+		  </div>
+		  <div class="form-group">
+			<label for="category" class="col-sm-2 control-label">文章目录</label>
+			<div class="col-sm-10">
+			  <input type="text" class="form-control" id="category" placeholder="请输入" name="category">
+			</div>
+		  </div>
+          <div class="form-group">
+			<label for="body" class="col-sm-2 control-label">文章内容</label>
+			<div class="col-sm-10">
+<!--			  <input type="text" class="form-control" id="body" placeholder="请输入" name="body">-->
+                <textarea class="form-control" rows="3" name="body"></textarea>
+			</div>
+		  </div>
+<!--          <div class="form-group">-->
+<!--            <label for="body">文章内容</label>-->
+<!--              <div class="col-sm-10">-->
+<!--                <textarea class="form-control" rows="3" name="body"></textarea>-->
+<!--              </div>-->
+<!--          </div>-->
+<!--		  <div class="form-group">-->
+<!--			<div class="col-sm-offset-2 col-sm-10">-->
+<!--			  <div class="checkbox">-->
+<!--				<label>-->
+<!--				  <input type="checkbox">请记住我-->
+<!--				</label>-->
+<!--			  </div>-->
+<!--			</div>-->
+<!--		  </div>-->
+		  <div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+			  <button type="submit" class="btn btn-default">提交</button>
+			</div>
+		  </div>
+		</form>
+		</div>
+	</div>
+{% endblock %}

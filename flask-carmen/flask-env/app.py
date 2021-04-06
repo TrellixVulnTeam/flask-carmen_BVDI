@@ -6,6 +6,8 @@ from flask_mail import Mail
 from libs import db
 from models import Message
 import click
+from views.blogs.admin import admin_app
+from views.blogs.auth import auth_app
 from views.blogs.blog import blog_app
 from views.messages.messages import message_app
 from views.users.users import user_app
@@ -14,6 +16,8 @@ app = Flask(__name__)
 app.register_blueprint(user_app, url_prefix="/user")
 app.register_blueprint(message_app, url_prefix="/message")
 app.register_blueprint(blog_app, url_prefix="/blog")
+app.register_blueprint(auth_app, url_prefix="/auth")
+app.register_blueprint(admin_app, url_prefix="/admin")
 
 
 # app是一个符合wsgi接口协议的python程序对象

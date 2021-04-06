@@ -2,25 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df2c1a0e-b107-4666-9a7f-d6c5f3625b7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/flask-env/static/img/sky_fighting.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flask-env/templates/blog/blog.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flask-env/views/blogs/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flask-env/views/blogs/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flask-env/views/blogs/auth.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flask-env/views/blogs/blog.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask-env/migrations/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask-env/migrations/alembic.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask-env/migrations/env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask-env/migrations/script.py.mako" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask-env/templates/admin/manage_category.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask-env/templates/admin/manage_link.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask-env/templates/admin/manage_post.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask-env/templates/admin/new_category.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask-env/templates/admin/new_link.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask-env/templates/admin/new_post.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask-env/templates/auth/auth_login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flask-env/templates/blog_base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/versions/33fb92712ed5_create_link_table.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/versions/a96c4798273c_create_category_table.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/versions/c743cc077f44_create_post_table.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/Lib/site-packages/faker/providers/lorem/en_US/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/Lib/site-packages/faker/providers/lorem/en_US/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/Lib/site-packages/faker/providers/lorem/fr_FR/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/Lib/site-packages/faker/providers/lorem/fr_FR/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/Lib/site-packages/mimesis/data/int/person.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/Lib/site-packages/mimesis/data/int/person.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/Lib/site-packages/pip/_vendor/html5lib/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/Lib/site-packages/pip/_vendor/html5lib/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/Lib/site-packages/pip/_vendor/html5lib/filters/optionaltags.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/Lib/site-packages/pip/_vendor/html5lib/filters/optionaltags.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/Lib/site-packages/pip/_vendor/html5lib/filters/sanitizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/Lib/site-packages/pip/_vendor/html5lib/filters/sanitizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/Lib/site-packages/pip/_vendor/html5lib/html5parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/Lib/site-packages/pip/_vendor/html5lib/html5parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/Lib/site-packages/pygments/formatters/latex.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/Lib/site-packages/pygments/formatters/latex.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/Lib/site-packages/setuptools/_distutils/msvc9compiler.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/Lib/site-packages/setuptools/_distutils/msvc9compiler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask-env/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask-env/cms.db" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/cms.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/templates/base02.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/base02.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/templates/blog/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/blog/blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/views/blogs/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/views/blogs/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/views/blogs/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/views/blogs/auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/views/blogs/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/views/blogs/blog.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +55,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\flask\flask-carmen\flask-env\templates\auth" />
       <recent name="D:\flask\flask-carmen\flask-env\templates" />
       <recent name="D:\flask\flask-carmen\flask-env\static" />
       <recent name="D:\flask\flask-carmen\flask-env\templates\index" />
