@@ -25,7 +25,7 @@ def newPost():
         )
         db.session.add(post)
         db.session.commit()
-        print(title, category_name, body)
+        # print(title, category_name, body)
     return render_template('admin/new_post.html', categorys=categorys)
 
 
@@ -98,14 +98,15 @@ def manageLink():
 @admin_app.route("/editpost/<int:post_id>", methods=['get', 'post'])
 def editPost(post_id):
     post = Post.query.get(post_id)
+    categorys = Category.query.all()
     if request.method == "POST":
         post.title = request.form['title']
-        post.category = request.form['category']
+        post.category = request.form['category_name']
         post.body = request.form['body']
         # db.session.add(user)
         db.session.commit()
         return redirect(url_for("admin_app.managePost"))
-    return render_template("admin/edit_post.html", post=post)
+    return render_template("admin/edit_post.html", post=post, categorys=categorys)
 
 
 @admin_app.route("/post_delete/<int:post_id>")

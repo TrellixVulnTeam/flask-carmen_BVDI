@@ -3,7 +3,7 @@ import click
 # from flask import app
 from app import app
 from libs import db
-from models import User, Message
+from models import User, Message, Post
 import random
 
 
@@ -25,3 +25,4 @@ def createBatchUsers():
         )
         db.session.add(user)
     db.session.commit()
+

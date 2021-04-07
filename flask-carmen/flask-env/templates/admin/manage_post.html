@@ -10,9 +10,7 @@
     <div class="col-sm-12">
         <table class="table table-striped">
 <!--          <caption>条纹表格布局</caption>-->
-            <tr>
-                <td>总页数：{{ pages }}/总记录：{{ total }}</td>
-            </tr>
+
           <thead>
             <tr>
                 <th>序号</th>
@@ -36,6 +34,9 @@
             </tr>
             {% endfor %}
           </tbody>
+            <tr>
+                <td>总页数：{{ pages }}/总记录：{{ total }}</td>
+            </tr>
 <!--            <ul>-->
 <!--                {% for page in pageList %}-->
 <!--                    {% if page != None %}-->

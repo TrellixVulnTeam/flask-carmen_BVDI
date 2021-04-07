@@ -9,6 +9,6 @@ blog_app = Blueprint("blog_app", __name__)
 
 @blog_app.route('/bloglist', methods=['get', 'post'])
 def blogList():
-    blog_posts = Post.query.all()
+    blog_posts = Post.query.order_by(Post.timestamp.desc()).all()
     links = Link.query.all()
     return render_template('blog/blog.html', links=links, blog_posts=blog_posts)

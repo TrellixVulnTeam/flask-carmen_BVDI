@@ -13,24 +13,24 @@ class User(db.Model):
     age = db.Column(db.Integer)
 
 
-class Author(db.Model):
-    # db.Column()为创建字段，第一个参数为字段数据类型
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(70), unique=True)
-    phone = db.Column(db.String(20))
-    nickname = db.Column(db.String(20))
-    like = db.Column(db.String(20))
+# class Author(db.Model):
+#     # db.Column()为创建字段，第一个参数为字段数据类型
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.String(70), unique=True)
+#     phone = db.Column(db.String(20))
+#     nickname = db.Column(db.String(20))
+#     like = db.Column(db.String(20))
+#
+#     articles = db.relationship('Article')
 
-    articles = db.relationship('Article')
 
-
-class Article(db.Model):
-    # db.Column()为创建字段，第一个参数为字段数据类型
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(50), index=True)
-    body = db.Column(db.Text)
-
-    author_id = db.Column(db.Integer, db.ForeignKey('author.id'))
+# class Article(db.Model):
+#     # db.Column()为创建字段，第一个参数为字段数据类型
+#     id = db.Column(db.Integer, primary_key=True)
+#     title = db.Column(db.String(50), index=True)
+#     body = db.Column(db.Text)
+#
+#     author_id = db.Column(db.Integer, db.ForeignKey('author.id'))
 
 
 class Message(db.Model):
@@ -45,16 +45,21 @@ class Message(db.Model):
 class Post(db.Model):
     # db.Column()为创建字段，第一个参数为字段数据类型
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(20), index=True)
+    title = db.Column(db.String(20))
     category = db.Column(db.String(20))
     body = db.Column(db.Text)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow, index=True)
+
+    # category_id = db.Column(db.Integer, db.ForeignKey('category.category_id'))
+    # category = db.relationship('Category', back_populates='posts')
 
 
 class Category(db.Model):
     # db.Column()为创建字段，第一个参数为字段数据类型
     category_id = db.Column(db.Integer, primary_key=True)
-    category_name = db.Column(db.String(20))
+    category_name = db.Column(db.String(20), unique=True)
+
+    # posts = db.relationship('Post', back_populates='category')
 
 
 class Link(db.Model):

@@ -4,7 +4,7 @@ from jinja2 import escape
 from flask_migrate import Migrate
 from flask_mail import Mail
 from libs import db
-from models import Message
+from models import Message, Post
 import click
 from views.blogs.admin import admin_app
 from views.blogs.auth import auth_app
@@ -112,7 +112,7 @@ def just_flash():
 
 @app.cli.command()
 @click.option('--count', default=10, help='create messages, default is 10')
-def forge(count):
+def forge_say_hello(count):
     """创造留言板用户数据"""
     from faker import Faker
     fake = Faker()  # 用来创造虚拟数据的faker实例
@@ -126,6 +126,27 @@ def forge(count):
         db.session.add(message)
     db.session.commit()
     click.echo("Created %s fake messages" % count)
+
+
+@app.cli.command()
+@click.option('--count', default=10, help='create posts, default is 10')
+def forge_new_post(count):
+    """创造Post数据"""
+    from faker import Faker
+    import random
+    fake = Faker()  # 用来创造虚拟数据的faker实例
+    click.echo("Working...")
+    lst = ["Pride", "Envy", "Wrath", "Sloth", "Greed", "Gluttony", "Lust"]
+    for i in range(count):
+        post = Post(
+            title=fake.name(),
+            body=fake.sentence(),
+            category=random.choice(lst),
+            timestamp=fake.date_time_this_year()
+        )
+        db.session.add(post)
+    db.session.commit()
+    click.echo("Created %s fake posts" % count)
 
 
 if __name__ == '__main__':

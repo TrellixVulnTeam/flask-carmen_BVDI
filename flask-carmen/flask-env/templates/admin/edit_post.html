@@ -19,7 +19,12 @@
 		  <div class="form-group">
 			<label for="category" class="col-sm-2 control-label">文章目录</label>
 			<div class="col-sm-10">
-			  <input type="text" class="form-control" id="category" placeholder="请输入" value="{{ post.category }}" name="category">
+			  	<select class="form-control" value="{{ post.category }}" name="category_name">
+					{% for category in categorys %}
+				  		<option>{{ category.category_name }}</option>
+					{% endfor %}
+				</select>
+<!--				<input type="text" class="form-control" id="category" placeholder="请输入" value="{{ post.category }}" name="category">-->
 			</div>
 		  </div>
 

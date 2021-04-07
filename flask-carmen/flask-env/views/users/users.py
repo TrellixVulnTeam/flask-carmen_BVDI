@@ -75,10 +75,10 @@ def deleteUser(user_id):
     user = User.query.get(user_id)
     db.session.delete(user)
     db.session.commit()
-    return redirect(url_for("userList"))
+    return redirect(url_for("user_app.userList"))
 
 
-@user_app.route("/editedit/<int:user_id>", methods=['get', 'post'])
+@user_app.route("/edituser/<int:user_id>", methods=['get', 'post'])
 def editUser(user_id):
     user = User.query.get(user_id)
     if request.method == "POST":
@@ -88,5 +88,5 @@ def editUser(user_id):
         user.age = request.form['age']
         # db.session.add(user)
         db.session.commit()
-        return redirect(url_for("userList"))
+        return redirect(url_for("user_app.userList"))
     return render_template("user/edit_user.html", user=user)

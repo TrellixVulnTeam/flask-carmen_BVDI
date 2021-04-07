@@ -7,17 +7,17 @@
 {% block content %}
 <div class="row">
 
-    <div class="col-sm-8">
+    <div class="col-sm-8" style="margin-top: 40px">
       <!-- <h2>标题</h2>
       <h5>副标题</h5>
       <div class="fakeimg">图像</div> -->
 	  {% for blog_post in blog_posts %}
-		  <p>{{ blog_post.title }}</p>
-		  <p>{{ blog_post.body }}</p>
-			<h5>
+		  <h4>{{ blog_post.title }}</h4>
+		  <h3>{{ blog_post.body }}</h3>
+			<h4>
 			<a href="#" class="text-success"><strong>{{ blog_post.category }}</strong></a>
-			<small class="text-muted sub-title">#{{ blog_post.timestamp }}</small>
-			</h5>
+			</h4>
+			<h4 class="text-right"><small>#{{ blog_post.timestamp }}</small></h4>
 		  <hr >
 	  {% endfor %}
      <!-- <h2>标题</h2>
@@ -35,30 +35,30 @@
 <!--	  <hr >-->
 	</div>
 
-	<div class="col-sm-4">
+	<div class="col-md-4" >
 	  <h2>之于我</h2>
 	  <h5>似水流年:</h5>
       <div class="fakeimg">
           <img src="{{ url_for('static', filename='img/sky_fighting.jpg') }}" width="400" height="200"/>
       </div>
-<!--	  <p>关于我的介绍..</p>-->
-
-	  <h3>链接</h3>
-	  <p>幽灵之洞：</p>
-
-	  <ul class="nav nav-pills nav-stacked">
-<!--	    <li class="active"><a href="#">链接 1</a></li>-->
-<!--	    <li><a href="#">链接 2</a></li>-->
-<!--	    <li><a href="#">链接 3</a></li>-->
-<!--		<li><a href="#">链接 2</a></li>-->
-		  {% for link in links %}
-		  	<li><a href="{{ link.link_url }}">
-				{{ link.link_name }}
-			</a></li>
-		  {% endfor %}
-
-	  </ul>
-	  <hr class="hidden-sm hidden-md hidden-lg">
+<!--	  <hr class="hidden-sm hidden-md hidden-lg">-->
 	</div>
+<!--	<hr>-->
+<!--	<h2>之于你</h2>-->
+	<div class="col-md-4" style="margin-top: 40px">
+		<div class="panel panel-default">
+			<div class="panel-heading">链接</div>
+			<ul class="list-group">
+				{% for link in links %}
+					<li class="list-group-item">
+						<a href="{{ link.link_url }}">
+						{{ link.link_name }}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
   </div>
 {% endblock %}
