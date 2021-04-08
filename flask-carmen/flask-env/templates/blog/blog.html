@@ -1,17 +1,19 @@
 {% extends 'blog_base.html' %}
+
 {% block title %}blog{% endblock %}
 
 {% block styles %}
 {% endblock %}
 
 {% block content %}
+<!--<table class="table table-striped">-->
 <div class="row">
 
     <div class="col-sm-8" style="margin-top: 40px">
       <!-- <h2>标题</h2>
       <h5>副标题</h5>
       <div class="fakeimg">图像</div> -->
-	  {% for blog_post in blog_posts %}
+	  {% for blog_post in posts %}
 		  <h4>{{ blog_post.title }}</h4>
 		  <h3>{{ blog_post.body }}</h3>
 			<h4>
@@ -20,22 +22,10 @@
 			<h4 class="text-right"><small>#{{ blog_post.timestamp }}</small></h4>
 		  <hr >
 	  {% endfor %}
-     <!-- <h2>标题</h2>
-      <h5>副标题</h5>
-      <div class="fakeimg">图像</div> -->
-<!--      <p>一些文本..</p>-->
-<!--      <p>菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！</p>-->
-<!--	  <p>作者 时间</p>-->
-<!--	  <hr >-->
-
-<!--	  <p>一些文本..</p>-->
-<!--	  <p>菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！</p>-->
-<!--	  <p>作者 时间</p>-->
-<!--	  &lt;!&ndash; <br> &ndash;&gt;-->
-<!--	  <hr >-->
 	</div>
 
-	<div class="col-md-4" >
+
+	<div class="col-sm-4" >
 	  <h2>之于我</h2>
 	  <h5>似水流年:</h5>
       <div class="fakeimg">
@@ -43,9 +33,7 @@
       </div>
 <!--	  <hr class="hidden-sm hidden-md hidden-lg">-->
 	</div>
-<!--	<hr>-->
-<!--	<h2>之于你</h2>-->
-	<div class="col-md-4" style="margin-top: 40px">
+	<div class="col-sm-4" style="margin-top: 40px">
 		<div class="panel panel-default">
 			<div class="panel-heading">链接</div>
 			<ul class="list-group">
@@ -61,4 +49,38 @@
 	</div>
 
   </div>
+<!--</table>-->
+
+<table>
+	<tr>
+	<td>共{{ total }}条 总页数：{{ pages }}</td>
+<!--		<td></td>-->
+	<td >
+		<ul class="pagination" style="margin-left: 50px">
+			{% if prev_num != None %}
+				<li><a href="?page={{ prev_num }}">&laquo;</a></li>
+			{% else %}
+				<li><a href="#">&laquo;</a></li>
+			{% endif %}
+
+			{% for page in pageList %}
+
+				{% if page != None %}
+					<li><a href="?page={{ page }}">{{ page }}</a></li>
+				{% else %}
+					<li><a href="#">...</a></li>
+				{% endif %}
+			{% endfor %}
+
+			{% if next_num != None %}
+				<li><a href="?page={{ next_num }}">&raquo;</a></li>
+			{% else %}
+				<li><a href="#">&raquo;</a></li>
+			{% endif %}
+
+		</ul>
+	</td>
+	</tr>
+
+</table>
 {% endblock %}

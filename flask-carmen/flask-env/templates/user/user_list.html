@@ -60,16 +60,10 @@
 
 <!--	<input type="submit" value="查询"/>-->
 <!--</form>-->
-<!--<table >-->
-<!--	<tr>-->
-<!--		<td>总页数：{{ pages }}/总记录：{{ total }}</td>-->
-<!--	</tr>-->
-<!--</table>-->
+
 <table class="table table-striped">
-  <caption>条纹表格布局</caption>
-	<tr>
-		<td>总页数：{{ pages }}/总记录：{{ total }}</td>
-	</tr>
+<!--  <caption>条纹表格布局</caption>-->
+
   <thead>
     <tr>
 		<th>序号</th>
@@ -95,14 +89,39 @@
 	</tr>
 	{% endfor %}
   </tbody>
-	<ul>
-		{% for page in pageList %}
-			{% if page != None %}
-				<li><a href="?page={{ page }}">{{ page }}</a></li>
-			{% else %}
-				<li><a href="#">...</a></li>
-			{% endif %}
-		{% endfor %}
-	</ul>
 </table>
+
+<table>
+	<tr>
+	<td>共{{ total }}条 总页数：{{ pages }}</td>
+<!--		<td></td>-->
+	<td >
+		<ul class="pagination" style="margin-left: 50px">
+			{% if prev_num != None %}
+				<li><a href="?page={{ prev_num }}">&laquo;</a></li>
+			{% else %}
+				<li><a href="#">&laquo;</a></li>
+			{% endif %}
+
+			{% for page in pageList %}
+
+				{% if page != None %}
+					<li><a href="?page={{ page }}">{{ page }}</a></li>
+				{% else %}
+					<li><a href="#">...</a></li>
+				{% endif %}
+			{% endfor %}
+
+			{% if next_num != None %}
+				<li><a href="?page={{ next_num }}">&raquo;</a></li>
+			{% else %}
+				<li><a href="#">&raquo;</a></li>
+			{% endif %}
+
+		</ul>
+	</td>
+	</tr>
+
+</table>
+
 {% endblock %}

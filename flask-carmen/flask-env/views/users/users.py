@@ -58,16 +58,22 @@ def userList():
 
     else:
         # paginate分页设置
-        # page = request.args.get('page')
-        # users = User.query.paginate(int(page), 10)
-        users = User.query.all()
+        page = request.args.get('page')
+        if page is not None:
+            # users = User.query.paginate(1, 10)
+            users = User.query.paginate(int(page), 10)
+        else:
+            users = User.query.paginate(1, 10)
+        # users = User.query.all()
 
-    return render_template("user/user_list.html", users=users)
-    # return render_template("user/user_list.html", users=users.items,
-    #                        pages=users.pages,  # 总页数
-    #                        total=users.total,  # 总条数
-    #                        pageList=users.iter_pages()  # 自动分页
-    #                        )
+    # return render_template("user/user_list.html", users=users)
+    return render_template("user/user_list.html", users=users.items,
+                           pages=users.pages,  # 总页数
+                           total=users.total,  # 总条数
+                           pageList=users.iter_pages(),  # 自动分页
+                           next_num=users.next_num,  # 下一页
+                           prev_num=users.prev_num  # 上一页
+                           )
 
 
 @user_app.route("/user_delete/<int:user_id>")

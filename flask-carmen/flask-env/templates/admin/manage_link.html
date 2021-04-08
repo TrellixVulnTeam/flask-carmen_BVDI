@@ -34,20 +34,41 @@
             </tr>
             {% endfor %}
           </tbody>
-            <tr>
-                <td>总页数：{{ pages }}/总记录：{{ total }}</td>
-            </tr>
-<!--            <ul>-->
-<!--                {% for page in pageList %}-->
-<!--                    {% if page != None %}-->
-<!--                        <li><a href="?page={{ page }}">{{ page }}</a></li>-->
-<!--                    {% else %}-->
-<!--                        <li><a href="#">...</a></li>-->
-<!--                    {% endif %}-->
-<!--                {% endfor %}-->
-<!--            </ul>-->
         </table>
-
     </div>
 </div>
+
+<table>
+	<tr>
+	<td>共{{ total }}条 总页数：{{ pages }}</td>
+<!--		<td></td>-->
+	<td >
+		<ul class="pagination" style="margin-left: 50px">
+			{% if prev_num != None %}
+				<li><a href="?page={{ prev_num }}">&laquo;</a></li>
+			{% else %}
+				<li><a href="#">&laquo;</a></li>
+			{% endif %}
+
+			{% for page in pageList %}
+
+				{% if page != None %}
+					<li><a href="?page={{ page }}">{{ page }}</a></li>
+				{% else %}
+					<li><a href="#">...</a></li>
+				{% endif %}
+			{% endfor %}
+
+			{% if next_num != None %}
+				<li><a href="?page={{ next_num }}">&raquo;</a></li>
+			{% else %}
+				<li><a href="#">&raquo;</a></li>
+			{% endif %}
+
+		</ul>
+	</td>
+	</tr>
+
+</table>
+
 {% endblock %}

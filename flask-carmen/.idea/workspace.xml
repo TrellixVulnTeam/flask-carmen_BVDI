@@ -2,36 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df2c1a0e-b107-4666-9a7f-d6c5f3625b7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/versions/417ec121bb60_更新models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask-env/cms.db" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/cms.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/migrations/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/migrations/alembic.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/migrations/env.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/migrations/script.py.mako" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/templates/admin/edit_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/admin/edit_post.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask-env/templates/admin/manage_link.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/admin/manage_link.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask-env/templates/admin/manage_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/admin/manage_post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/templates/admin/new_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/admin/new_post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/templates/auth/auth_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/auth/auth_login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/templates/base02.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/base02.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask-env/templates/blog/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/blog/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/templates/index/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/index/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/templates/user/edit_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/user/edit_user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/templates/index_copy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask-env/templates/user/user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/user/user_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask-env/views/blogs/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/views/blogs/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask-env/views/blogs/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/views/blogs/blog.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask-env/views/users/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/views/users/users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/1828f83e49f7_change_category.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/21a10dc65fe9_create_link_timestamp.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/33fb92712ed5_create_link_table.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/4989afda9a1b_增加message留言板模型.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/931cd9a985ea_post_add_timestamp.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/a96c4798273c_create_category_table.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/c743cc077f44_create_post_table.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/d95fed10405b_author_add_nickname_like.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/versions/12a74976df35_.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

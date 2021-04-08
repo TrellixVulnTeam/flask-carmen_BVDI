@@ -68,8 +68,24 @@ def newLink():
 
 @admin_app.route('/managepost', methods=['get', 'post'])
 def managePost():
-    blog_posts = Post.query.all()
-    return render_template('admin/manage_post.html', blog_posts=blog_posts)
+    # blog_posts = Post.query.all()
+    page = request.args.get('page')
+    if page is not None:
+        # users = User.query.paginate(1, 10)
+        posts = Post.query.paginate(int(page), 10)
+        # users = User.query.all()
+    else:
+        posts = Post.query.paginate(1, 10)
+
+    # return render_template("user/user_list.html", users=users)
+    return render_template("admin/manage_post.html", posts=posts.items,
+                           pages=posts.pages,  # 总页数
+                           total=posts.total,  # 总条数
+                           pageList=posts.iter_pages(),  # 自动分页
+                           next_num=posts.next_num,  # 下一页
+                           prev_num=posts.prev_num  # 上一页
+                           )
+    # return render_template('admin/manage_post.html', blog_posts=blog_posts)
 
     # paginate分页设置
     # page = request.args.get('page')
@@ -91,8 +107,24 @@ def manageCategory():
 
 @admin_app.route('/managelink', methods=['get', 'post'])
 def manageLink():
-    links = Link.query.all()
-    return render_template('admin/manage_link.html', links=links)
+    # links = Link.query.all()
+    page = request.args.get('page')
+    if page is not None:
+        # users = User.query.paginate(1, 10)
+        links = Link.query.paginate(int(page), 10)
+        # users = User.query.all()
+    else:
+        links = Link.query.paginate(1, 10)
+
+    # return render_template("user/user_list.html", users=users)
+    return render_template("admin/manage_link.html", links=links.items,
+                           pages=links.pages,  # 总页数
+                           total=links.total,  # 总条数
+                           pageList=links.iter_pages(),  # 自动分页
+                           next_num=links.next_num,  # 下一页
+                           prev_num=links.prev_num  # 上一页
+                           )
+    # return render_template('admin/manage_link.html', links=links)
 
 
 @admin_app.route("/editpost/<int:post_id>", methods=['get', 'post'])
