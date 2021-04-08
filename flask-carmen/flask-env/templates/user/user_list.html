@@ -83,8 +83,12 @@
 		<td>{{ user.sex}}</td>
 		<td>{{ user.age}}</td>
 		<td>
-			<a href="{{ url_for("user_app.editUser", user_id=user.id) }}">修改</a>
-			<a href="{{ url_for("user_app.deleteUser", user_id=user.id) }}">删除</a>
+			<a href="{{ url_for("user_app.editUser", user_id=user.id) }}">
+				 <button type="button">修改</button>
+			</a>
+			<a href="{{ url_for("user_app.deleteUser", user_id=user.id) }}">
+				 <button type="button" onclick="return confirm('Are you sure?')">删除</button>
+			</a>
 		</td>
 	</tr>
 	{% endfor %}

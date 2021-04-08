@@ -29,7 +29,9 @@
                 <td>{{ link.link_timestamp }}</td>
                 <td>
                     <a href="{{ url_for("admin_app.editLink", link_id=link.link_id) }}"><button type="button">修改</button></a>
-                    <a href="{{ url_for("admin_app.deleteLink", link_id=link.link_id) }}"><button type="button">删除</button></a>
+                    <a href="{{ url_for("admin_app.deleteLink", link_id=link.link_id) }}">
+                        <button type="button" onclick="return confirm('Are you sure?')">删除</button>
+                    </a>
                 </td>
             </tr>
             {% endfor %}

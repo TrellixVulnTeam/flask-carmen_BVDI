@@ -29,7 +29,9 @@
                 <td>{{ blog_post.timestamp }}</td>
                 <td>
                     <a href="{{ url_for("admin_app.editPost", post_id=blog_post.id) }}"><button type="button">修改</button></a>
-                    <a href="{{ url_for("admin_app.deletePost", post_id=blog_post.id) }}"><button type="button">删除</button></a>
+                    <a href="{{ url_for("admin_app.deletePost", post_id=blog_post.id) }}">
+                        <button type="button" onclick="return confirm('Are you sure?')">删除</button>
+                    </a>
                 </td>
             </tr>
             {% endfor %}

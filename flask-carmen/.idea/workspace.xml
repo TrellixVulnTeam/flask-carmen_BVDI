@@ -6,12 +6,7 @@
       <change beforePath="$PROJECT_DIR$/flask-env/cms.db" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/cms.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask-env/templates/admin/manage_link.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/admin/manage_link.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask-env/templates/admin/manage_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/admin/manage_post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/templates/blog/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/blog/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/templates/index_copy.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/flask-env/templates/user/user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/templates/user/user_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/views/blogs/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/views/blogs/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/views/blogs/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/views/blogs/blog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask-env/views/users/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-env/views/users/users.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
